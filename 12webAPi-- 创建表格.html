@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div>
+			姓名：<input id="nameText" type="text"><br> 年龄：
+			<input id="ageText" type="text">
+			<input type="button" value="添加学生">
+			<input type="button" value="删除一行">
+		</div>
+		<table id="stuInfo" width="200" border="1">
+			<tbody>
+				<tr>
+					<td>姓名</td>
+					<td>年龄</td>
+				</tr>
+				<tr>
+					<td>江泽民</td>
+					<td>50</td>
+				</tr>
+				<tr>
+					<td>芙蓉</td>
+					<td>30</td>
+				</tr>
+				<tr>
+					<td>凤姐</td>
+					<td>28</td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+	<script type="text/javascript">
+		// 两件事情：
+			// 1 添加学生
+			// 1获取相关元素  添加学生按钮 姓名和年龄文本框需要获取  表格也获取
+			var aInp = document.getElementsByTagName("input");
+			var oStuInfo = document.getElementById("stuInfo");
+			// 2 给按钮添加 单击事件
+			
+			aInp[2].onclick = function() {
+				// 3 事件处理
+				// 需要获取姓名和年龄
+				var userName = aInp[0].value;
+				var age = aInp[1].value;
+				
+				// 创建一个tr   还需要创建两个td
+				
+				var nameTd = document.createElement("td");
+				
+				nameTd.innerHTML = userName;
+				
+				var ageTd = document.createElement("td");
+				
+				ageTd.innerHTML = age;
+				
+				var newTr = document.createElement("tr");
+				// A.appendChild(B) 将B放到a的里面的最后面
+				newTr.appendChild(nameTd);
+				newTr.appendChild(ageTd);
+				
+				oStuInfo.children[0].appendChild(newTr);
+			}
+			
+			
+			//2 删除一行
+	</script>
+
+</html>
